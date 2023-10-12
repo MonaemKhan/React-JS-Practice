@@ -31,8 +31,6 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-// export const [Role,setRole] = React.useState()
-
 export default function Login() {
 
   const { push } = useRouter();
