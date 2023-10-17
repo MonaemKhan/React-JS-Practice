@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import Link from 'next/link';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import ViewDetails from '@/Component/DataView/viewDetails';
 
 const PostView = () => {
     const [postdata, setPostData] = useState([]);
@@ -48,7 +47,6 @@ const PostView = () => {
                     }
                 </tbody>
             </table>
-            <ViewDetails/>
         </div>
     );
 };

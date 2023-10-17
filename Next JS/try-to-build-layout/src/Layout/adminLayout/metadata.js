@@ -14,12 +14,12 @@ export const menuData=[
         icon: <DynamicFeedIcon/>
     },
     {
-        label: "Home",
-        link: "/admin",
+        label: "Employee",
+        // link: "/admin/employee",
         submenu: [
             {
-                label: "Home1",
-                link: "/admin",
+                label: "Add Employee",
+                link: "/admin/employee",
                 submenu: null,
                 icon: <AddHomeIcon/>
             }
