@@ -16,8 +16,8 @@ const ViewAllProduct = () => {
 
     return (
         <>
-            <div className='border border-3 p-3'>
-                <div className='bg-light text-secondary d-flex justify-content-between'>
+            <div className='border border-3 p-3 bg-light'>
+                <div className='m-5 text-secondary d-flex justify-content-between'>
                     <div>
                         <h2> All Product</h2>
                     </div>
@@ -66,6 +66,11 @@ const ViewAllProduct = () => {
                                         <td>{val.sellPrice}</td>
                                         <td>{val.countryName}</td>
                                         <td><img style={{width:"50px", height:"50px"}} src={`https://localhost:7259/${val.imagePath}`} /></td>
+                                        <td>
+                                            <button className='btn btn-success me-2'>Edit</button>
+                                            <button className='btn btn-primary me-2'>View</button>
+                                            <button className='btn btn-danger'>Delete</button>
+                                        </td>
                                     </tr>
                                 ))
                             }
