@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 const EmployeeView = () => {
     const [empsData, setEmpsData] = useState([]);
-    const [index, setIndex] = useState(3);
+    const [index, setIndex] = useState(5);
     const [page, setPage] = useState(0)
     const [pageCount, setPageCount] = useState(2);
 
@@ -22,7 +22,7 @@ const EmployeeView = () => {
             setPageCount(Math.ceil(data.total/index));
         };
         getData();
-    }, [index, page,pageCount]);
+    }, [index,page,pageCount]);
 
     const handleSearch = (e) => {
         console.log(e.target.value);
@@ -59,7 +59,7 @@ const EmployeeView = () => {
         if(confirm){
             try{
                 await DeleteEmployee(Id);
-                route.push('/admin/employee')
+                
             }catch(error){
                 window.alert("Delete Unsuccesfull");
             }
@@ -82,7 +82,7 @@ const EmployeeView = () => {
                     <div>
                         <div>
                             <select name="" id="" className='form-select' onChange={(e) => handleSelect(e)}>
-                                <option value="3">3</option>
+                                <option value="5">5</option>
                                 <option value="10">10</option>
                                 <option value="15">15</option>
                                 <option value="20">20</option>
