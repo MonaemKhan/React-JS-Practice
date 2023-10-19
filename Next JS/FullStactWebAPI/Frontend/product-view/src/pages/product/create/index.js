@@ -31,15 +31,15 @@ const CreateProduct = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("into the Submit");
+        // console.log("into the Submit");
         await AddProduct(new FormData(e.target));
         route.push('/product')
     }
 
     return (
         <div>
-            <div className='container border'>
-                <h1>Create New Employee</h1>
+            <div className='container border my-5 pt-3'>
+                <h1 className='text-center'>Create New Product</h1>
                 <hr className='mb-5' />
                 <form onSubmit={(e) => handleSubmit(e)} className='container ps-5'>
                     <div className="mb-3 col-md-8 d-flex">
@@ -85,12 +85,16 @@ const CreateProduct = () => {
                     </div>
 
                     <div className="mb-3 col-md-8 d-flex">
-                        <img style={{ width: '150px', height: "150px", border: "2px solid black", borderRadius: "10px" }} src={imgUrl} alt="Image Preview" />
+                        {
+                            imgUrl === ''?
+                            <img style={{ width: '150px', height: "150px", border: "2px solid black", borderRadius: "10px" }} src="../../../Photos/person.jpeg" alt="Null Photo" />
+                            :<img style={{ width: '150px', height: "150px", border: "2px solid black", borderRadius: "10px" }} src={imgUrl} alt="Image Preview" />
+                        }
                     </div>
 
                     <div className='d-flex justify-content-between'>
-                        <Link href={'/product'} className="btn btn-primary mb-3 me-5"> Back </Link>
-                        <input type="submit" className="btn btn-primary mb-3 me-5" name='id' />
+                        <Link href={'/product'} className="btn btn-primary mb-3 me-5"> <i className="bi bi-skip-backward-fill"></i> </Link>
+                        <input type="submit" className="btn btn-success mb-3 me-5" name='id' />
                     </div>
                 </form>
 

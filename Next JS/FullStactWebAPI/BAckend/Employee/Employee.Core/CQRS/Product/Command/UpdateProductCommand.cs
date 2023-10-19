@@ -25,7 +25,7 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand,
     }
     public async Task<CommandResult<VMProduct>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
-        if (request.VMData.ImageFile?.Length > 0)
+        if (request.VMData.ImageFile?.Length != null)
         {
             var de_path = Path.Combine(_webHostEnvironment.WebRootPath +"/"+request.VMData.ImagePath);
             if (System.IO.File.Exists(de_path))

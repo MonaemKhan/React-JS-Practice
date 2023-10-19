@@ -1,4 +1,4 @@
-import { GetAllProduct } from '@/services/product.service/product.service';
+import { DeleteEmployee, GetAllProduct } from '@/services/product.service/product.service';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
@@ -14,15 +14,28 @@ const ViewAllProduct = () => {
         
     },[]);
 
+    const handleDeleteClick = async (Id,Name) =>{
+        const confirm = window.confirm(`Are You sure\n You want to delete data of "${Name}"`)
+        if(confirm){
+            try{
+                await DeleteEmployee(Id);
+                location.reload();
+                
+            }catch(error){
+                window.alert("Delete Unsuccesfull");
+            }
+        }
+    }
+
     return (
         <>
             <div className='border border-3 p-3 bg-light'>
                 <div className='m-5 text-secondary d-flex justify-content-between'>
                     <div>
-                        <h2> All Product</h2>
+                        <h2>View All Product</h2>
                     </div>
                     <div>
-                        <Link href={'/product/create'} className='fs-5'>Add Product</Link>
+                        <Link href={'/product/create'} className='fs-5'><i className="bi bi-bag-plus-fill"></i>Add Product</Link>
                     </div>
                 </div>
 
@@ -67,9 +80,9 @@ const ViewAllProduct = () => {
                                         <td>{val.countryName}</td>
                                         <td><img style={{width:"50px", height:"50px"}} src={`https://localhost:7259/${val.imagePath}`} /></td>
                                         <td>
-                                            <button className='btn btn-success me-2'>Edit</button>
-                                            <button className='btn btn-primary me-2'>View</button>
-                                            <button className='btn btn-danger'>Delete</button>
+                                            <Link href={`/product/edit/${val.id}`} className='btn btn-success me-2'> <i class="bi bi-pencil-fill"></i> </Link>
+                                            <Link href={`/product/view/${val.id}`} className='btn btn-primary me-2'> <i className="bi bi-eye-fill"></i> </Link>
+                                            <Link href={`/product`} onClick={()=>handleDeleteClick(val.id,val.productName)} className='btn btn-danger'> <i class="bi bi-archive-fill"></i> </Link>
                                         </td>
                                     </tr>
                                 ))
