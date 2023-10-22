@@ -1,0 +1,38 @@
+.MuiDrawer-paper {
+    /* background-color: #14D1D0 !important; */
+    background: #F4F6F9;
+}
+
+.MuiToolbar-regular {
+    /* background-color: #14D1D0 !important; */
+    background: #E5E7EB;
+}
+
+
+
+.sidebar_responsive {
+    display: inline !important;
+    z-index: 9999 !important;
+    left: 0 !important;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* .css-fiov70{
+    background: #e65061;
+} */
+
+.admin-dropdown .dropdown-toggle::after {
+    display: none !important;
+}
+
+.selected-menu {
+    color: #fff !important;
+    background: #4998E8 !important;
+}
+
+.selected-icon {
+    color: #fff !important;
+}
