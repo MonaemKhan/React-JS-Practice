@@ -4,11 +4,14 @@ import React, { useEffect, useState } from 'react';
 
 const ViewAllProduct = () => {
     const [product,setProduct] = useState([]);
+    const [lodaing,setLoading] = useState(true);
 
     useEffect(()=>{
         const getProduct = async () =>{
             const data = await GetAllProduct();
             setProduct(data)
+            setLoading(false);
+            console.log(lodaing);
         };
         getProduct()
         
@@ -28,7 +31,11 @@ const ViewAllProduct = () => {
     }
 
     return (
-        <>
+            (lodaing)?
+            <>
+                <h1 className='d-flex justify-content-center align-itemns-center'>Loading ...... </h1>
+            </>:
+            <>
             <div className='border border-3 p-3 bg-light'>
                 <div className='m-5 text-secondary d-flex justify-content-between'>
                     <div>
